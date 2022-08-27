@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css" />
+  <title>protfile project</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <!-- Adding font awesome icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    #container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+
+    }
+
+    #container .box {
+      position: relative;
+      width: 20rem;
+      height: 20rem;
+      margin: 4rem;
+
+    }
+
+    #container .box:hover .imgBox {
+      transform: translate(-3.5rem, -3.5rem);
+    }
+
+    #container .box:hover .content {
+      transform: translate(3.5rem, 3.5rem);
+    }
+
+
+    .imgBox {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20rem;
+      height: 20rem;
+      z-index: 2;
+      transition: all 0.5s ease-in-out;
+      border: 2px solid #111A2F;
+    }
+
+    .imgBox img {
+      width: 20rem;
+      height: 20rem;
+      object-fit: cover;
+      resize: both;
+    }
+
+    .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20rem;
+      height: 20rem;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      background-color: #fff;
+      z-index: 1;
+      align-items: flex-end;
+      text-align: center;
+      transition: 0.5s ease-in-out;
+      border: 2px solid #111A2F;
+    }
+
+    .content h2 {
+      display: block;
+      font-size: 2rem;
+      color: #111;
+
+      line-height: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .content span {
+      color: #555;
+      font-size: 1.4rem;
+
+      letter-spacing: 2px;
+    }
+
+    @media (max-width: 600px) {
+      #container .box:hover .content {
+        transform: translate(0, 3.5rem);
+      }
+
+      #container .box:hover .imgBox {
+
+        transform: translate(0, -3.5rem);
+      }
+
+    }
+
+    /* CARD STYLING */
+
+    #Behlehem,
+    .card,
+    .card_front,
+    .card_back {
+      height: 397px;
+      width: 800px;
+      margin: 3em auto;
+    }
+
+    .card_front,
+    .card_back {
+      /*   height: 100%; */
+      background: url('https://www.palinfo.com/Uploads/Models/Media/Images/2020/7/14/-262071782.jpg?h=500&w=750&crop=auto&scale=both&quality=80&404=default&format=jpg') no-repeat;
+      box-shadow: 0px 5px 25px 0px rgba(51, 51, 51, 0.28);
+    }
+
+    .card-symbol {
+      margin: 0;
+      width: 100%;
+      text-align: center;
+      color: #000;
+
+      font-size: 13em;
+      mix-blend-mode: lighten;
+    }
+
+    @supports(display:flex) {
+      .card_front {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card_front .card-symbol {
+        margin: 0 0.15em;
+
+        font-size: 15em;
+      }
+    }
+
+    .card_front {
+      position: relative;
+      padding: 0 1em;
+    }
+
+    .card_front .card-symbol {
+      font-size: 15em;
+    }
+
+
+
+    .card_back {
+      /*   display: none; */
+      padding: 1em;
+    }
+
+    .card_front>*,
+    .card_back>* {
+      background-color: rgb(233, 146, 207);
+      background-color: rgba(255, 255, 255, 0.75);
+    }
+
+    .card-text {
+      padding: 0 4.5em 1em;
+      line-height: 1.4;
+    }
+
+
+    /* FLIP CARD STYLING */
+    #Bethlehem {
+      perspective: 1000px;
+    }
+
+    #Bethlehem:hover .card,
+    #Bethlehem.hover {
+      transform: rotateY(-180deg);
+    }
+
+    .card {
+      transition: 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+
+    .card_front,
+    .card_back {
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .card_front {
+      z-index: 2;
+      transform: rotateY(0deg);
+    }
+
+    .card_back {
+      transform: rotateY(-180deg);
+    }
+
+    /*web  style*/
+
+
+    #Team {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 40px 0;
+
+    }
+
+    #Team .webcard {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      background: #bbbbbb;
+      margin: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      border: 2px solid #111A2F;
+    }
+
+    #Team .webcard .webcontent {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: 0.5s;
+    }
+
+    #Team .webcard:hover .webcontent {
+      transform: translateY(-20px);
+    }
+
+    #Team .webcard .webcontent .imgBx {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+    }
+
+    #Team .webcard .webcontent .imgBx img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 2px solid black;
+    }
+
+    #Team .webcard .webcontent .contentBx h3 {
+      color: black;
+      text-transform: capitalize;
+      letter-spacing: 2px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: normal;
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0 10px 5px;
+      padding-left: 10px;
+      line-height: 1.5em;
+    }
+
+    #major {
+      position: relative;
+      /*  top: 10%;*/
+      left: 15%;
+      /* transform: translate(-20%,-10%);*/
+      width: 70%;
+      height: 70%;
+      background: #000;
+    }
+
+    #major .image {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #major .image img {
+      width: 100%;
+      transition: .5s;
+    }
+
+    #major:hover .image img {
+      opacity: .5;
+      transform: translateX(30%);
+      /*100%*/
+    }
+
+    #major .details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      /*100%*/
+      height: 100%;
+      background: #111A2F;
+      transition: .5s;
+      transform-origin: left;
+      transform: perspective(2000px) rotateY(-90deg);
+    }
+
+    #major:hover .details {
+      transform: perspective(2000px) rotateY(0deg);
+    }
+
+    #major .details .center {
+      padding: 12px;
+      text-align: center;
+      background: rgb(219, 218, 228);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+    }
+
+    #major .details .center h1 {
+      margin: 0;
+      padding: 0;
+      color: black;
+      line-height: 20px;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+
+    #major .details .center h1 span {
+      font-size: 14px;
+      color: black;
+    }
+
+    #major .details .center p {
+      margin: 10px 0;
+      padding: 0;
+      color: black;
+    }
+
+    /*# sourceMappingURL=main.css.map */
+
+
+    #vollege {
+      background-color: #111A2F;
+      border-radius: 5px;
+      box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+      color: #f1efef;
+      padding-top: 30px;
+      position: relative;
+      width: 50%;
+      max-width: 100%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      left: 30%;
+      min-height: 100vh;
+      margin: 0;
+      line-height: 1.5em;
+    }
+
+
+    #vollege .round {
+
+      border-radius: 70%;
+      width: 150px;
+      height: 150px;
+    }
+
+
+
+
+    /*form*/
+    input[type=text],
+    select,
+    textarea {
+      width: 50%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    label {
+      padding: 12px 12px 12px 0;
+      display: inline-block;
+      color: #bbbbbb;
+
+    }
+
+    input[type=submit] {
+      background-color: #bbbbbb;
+      color: #111A2F;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: left;
+    }
+
+    input[type=submit]:hover {
+      background-color: #bbbbbb;
+    }
+
+    #questionare {
+      border-radius: 5px;
+      background-color: #111A2F;
+      padding: 20px;
+      width: 120%;
+    }
+
+    .column {
+      float: left;
+      width: 25%;
+      margin-top: 6px;
+    }
+
+    .column {
+      float: left;
+      width: 75%;
+      margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .form-content:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    #hidden {
+      display: none;
+    }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+
+      .column,
+      .column,
+      input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+      }
+
+      #hidden {
+        display: inline;
+        top: 0;
+        left: 0;
+
+      }
+
+      nav a {
+        display: none;
+      }
+    }
+
+
+    @media screen and (max-width: 600px) {
+
+      .column,
+      .column,
+      input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+      }
+
+      #hidden {
+        display: inline;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+  <section id="home">
+    <h2 style="display: none;">hello</h2>
+    <nav>
+      <img id="hidden" src="./images/menu.png" alt="image" width="50" height="50">
+      <a href="#home">Personal</a>
+      <a href="#vollege">Voillage</a>
+      <a href="#programme">GAza_Sky_Geeks</a>
+      <a href="#container">Hobbies</a>
+      <a href="#major">Major</a>
+      <a href="#Team">Our_Team</a>
+      <a href="#questionare">Questianar</a>
+    </nav>
+    <img src="./images/personal.jpg" style="width: 100%;" height="500" alt="personal">
+    <div class="hero-text">
+      <p>welcome to my personal portfile</p>
+    </div>
+
+  </section>
+
+  <div id="vollege">
+    <h1 style="margin-top:-15px;">Herodian mountain</h1>
+    <img class="round" src="./images/vollege.jpg" style="margin-top: 15px;" width="200" height="200" alt="mountain" />
+    <h3>Herodian mountain</h3>
+    <h6>Bethlehem</h6>
+    <p>
+      I live near the mountain, and it is very beautiful, especially in the spring, when it is covered in green and many
+      tourists come to visit it
+    </p>
+
+
+  </div>
+
+
+  <div>
+    <h1 style="text-align: center;margin-top: 20px;">My Hobbies</h1>
+  </div>
+  <div id="container">
+
+
+    <div class="box">
+      <div class="imgBox">
+        <img src="./images/write.jpg" alt="">
+      </div>
+      <div class="content">
+        <h2>Writting
+          <span><br>articls</span>
+        </h2>
+      </div>
+    </div>
+    <div class="box">
+      <div class="imgBox">
+        <img src="./images/books.jpg" alt="">
+      </div>
+      <div class="content">
+        <h2>Reading
+          <span><br>novels and books</span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="imgBox">
+        <img src="./images/design.jpg" alt="">
+      </div>
+      <div class="content">
+        <h2>Design
+          <span><br>Graphic Designer</span>
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div id="programme">
+    <div class="programme-card">
+      <h1>Gaza&nbsp;Sky&nbsp;Geeks</h1>
+      <div class="programme-image">
+        <img src="./images/gaza_sky_geeks.jpg" height="200" width="400" alt="gaza_sky_geeks">
+
+      </div>
+
+      <p class="card-text">
+        I have heard many of my friends about this program and how much they benefited through their experiences with
+        it, which prompted me to pay attention to it and follow its activities. I found this opportunity and hope to get
+        it to help me acquire a new skill and expand my field of expertise.</p>
+    </div>
+
+  </div>
+  <div>
+    <h1 style="text-align: center; margin-bottom: 15px;">My Major</h1>
+  </div>
+  <div id="major">
+
+    <div class="image">
+
+      <img src="./images/major.jpg" alt="major">
+    </div>
+    <div class="details">
+      <div class="center">
+        <h1>Major <br><span>Specialization</span></h1>
+        <p>I am studying software engineering in the third year at Bethlehem University</p>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div>
+    <h1 style="text-align: center; margin-top: 15px;">Our Team</h1>
+  </div>
+  <div id="Team">
+    <div class="webcard">
+      <div class="webcontent">
+        <h1 style="color:#111A2F;">Muna Zeer</h1>
+        <div class="imgBx">
+          <img src="./images/developer.jpg" alt="developer">
+        </div>
+        <div class="contentBx">
+          <h5> email:<br>&nbsp;&nbsp;munaelzeer@gmail.com</h5><br>
+          <h5>&nbsp;&nbsp;Tel:0569293724</h5>
+          <h5>&nbsp;&nbsp;Major:SoftwareEngineering</h5>
+        </div>
+      </div>
+    </div>
+    <div class="webcard">
+      <div class="webcontent">
+        <h1 style="color:#111A2F;">Manar Zeer</h1>
+        <div class="imgBx">
+          <img src="./images/devloper2.jpg" alt="developer2">
+        </div>
+        <div class="contentBx">
+          <h5>email:<br>&nbsp;&nbsp;manarzeer2001@gmail.com</h5><br>
+          <h5>&nbsp;&nbsp;Tel:0569132721</h5>
+          <h5>&nbsp;&nbsp;Major:SoftwareEngineering</h5>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+    <div class="space"></div>
+
+    <div id="questionare">
+
+      <div>
+        <h1 style="text-align: center; margin-bottom: 15px; color: #bbbbbb;">Fill the form </h1>
+      </div>
+      <form action="/action_page.php">
+        <div class="form-content">
+          <div class="column">
+            <label for="fname">First Name</label>
+          </div>
+          <div class="column">
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+          </div>
+
+        </div>
+        <div class="form-content">
+          <div class="column">
+            <label for="lname">Last Name</label>
+          </div>
+          <div class="column">
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+          </div>
+        </div>
+        <div class="form-content">
+          <div class="column">
+            <label>Id programme</label>
+          </div>
+          <div class="column">
+            <input type="text" id="idprogramme" name="id-programme" placeholder="Your Id programme..">
+          </div>
+
+        </div>
+        <div class="form-content">
+          <div class="column">
+            <label>gender</label><br>
+
+          </div>
+          <div class="column">
+            <select id="gender" name="gender">
+              <option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+
+            </select>
+          </div>
+        </div>
+
+        <div class="form-content">
+          <div class="column">
+            <label for="country">Country</label>
+          </div>
+          <div class="column">
+            <select id="country" name="country">
+              <option>
+              <option value="palestine">Palestine</option>
+              <option value="jordan">Jordan</option>
+              <option value="syria">Syria</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-content">
+          <div class="column">
+            <label for="city">city</label>
+          </div>
+          <div class="column">
+            <select id="city" name="city">
+              <option>
+              <option value="bethlehem">Bethlehem</option>
+              <option value="hebron">Hebron</option>
+              <option value="jerusalem">Jerusalem</option>
+              <option value="ramallah">Ramallah</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-content">
+          <div class="column">
+            <label>Academic year</label>
+          </div><br>
+          <div class="column">
+            <select id="year" name="year">
+              <option>
+              <option value="first">First</option>
+              <option value="second">Second</option>
+              <option value="third">Third</option>
+              <option value="fourth">Fourth</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-content">
+          <div class="column">
+            <label>favourite movie</label>
+          </div>
+          <div class="column">
+            <select name="movie pef">
+              <option>
+              <option value=1>comedy
+              <option value=2>rommance</option>
+              <option value=3>thriller</option>
+              <option value=4>horror</option>
+              <option value=5>piopic</option>
+
+            </select>
+          </div>
+        </div>
+
+
+        <div class="form-content">
+          <div class="column">
+            <label for="subject">Subject</label>
+          </div>
+          <div class="column">
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+          </div>
+        </div>
+
+
+        <div class="form-content">
+          <div class="column">
+            <label>How do you like to read about your favorite topics</label>
+            <p class="checkbox" style="color: #bbbbbb">
+              <input type="checkbox" name="book">book
+              <input type="checkbox" name="web">online resources
+              <input type="checkbox" name="phone">phone apps
+              <input type="checkbox" name="magazins">magazines
+            </p>
+          </div>
+        </div>
+        <br>
+        <div class="form-content">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+
+
+
+
+
+
+    <div class="footer">
+      <ul class="social-links">
+
+        <li class="facebook"><a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+        <li class="twitter"><a target="_blank" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+        <li class="googleplus"><a target="_blank" href="https://www.google.com/"><i class="fa fa-google-plus"></i></a>
+        </li>
+        <li class="skype"><a target="_blank" href="https://www.skype.com/ar/"><i class="fa fa-skype"></i></a></li>
+        <li class="linkedin"><a target="_blank" href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+        <li class="youtube"><a target="_blank" href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a></li>
+      </ul>
+    </div>
+
+
+
+
+
+
+
+    <!-- .subfooter end -->
+
+
+
+</body>
+
+</html>
